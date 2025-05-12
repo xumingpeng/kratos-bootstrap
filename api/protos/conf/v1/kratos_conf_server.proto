@@ -249,14 +249,14 @@ message Server {
   optional Machinery machinery = 31;  // Machinery服务
 
 
-  optional WeCom wecom = 40; // 企业微信服务
+  optional Wecom wecom = 40; // 企业微信服务
 
-  message WeCom {
-    string Address = 1; // http服务地址
-    int32 AgentID = 2;
-    string CorpID = 3; // 企业ID
-    string CorpSecret = 4; // 企业微信应用secret
-    string ContactSecret = 5; // 企业微信通讯录secret
-    bool Debug = 6; // 调试开关
+  message Wecom {
+    string address = 1; // http服务地址
+    int32 agent_id = 2;
+    string corp_id = 3; // 企业ID
+    string corp_secret = 4; // 企业微信应用secret
+    string contact_secret = 5; // 企业微信通讯录secret
+    bool debug = 6; // 调试开关
   }
 }

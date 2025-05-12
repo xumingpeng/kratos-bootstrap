@@ -17,6 +17,7 @@ import (
 	"github.com/tx7do/kratos-bootstrap/tracer"
 
 	"auroraride.com/auth/pkg/wecom"
+
 	conf "github.com/tx7do/kratos-bootstrap/api/gen/go/conf/v1"
 	"github.com/tx7do/kratos-bootstrap/utils"
 )
@@ -97,10 +98,10 @@ func Bootstrap(initApp InitApp, serviceName, version *string) {
 		wecom.WithCache(wecom.NewRedisCache(redis.NewClient(&redis.Options{
 			Addr: cfg.Data.Redis.Addr,
 		}))),
-		wecom.WithCorpID(cfg.Server.Wecom.CorpID),
+		wecom.WithCorpID(cfg.Server.Wecom.CorpId),
 		wecom.WithCorpSecret(cfg.Server.Wecom.CorpSecret),
 		wecom.WithContactSecret(cfg.Server.Wecom.ContactSecret),
-		wecom.WithAgentID(int(cfg.Server.Wecom.AgentID)),
+		wecom.WithAgentID(int(cfg.Server.Wecom.AgentId)),
 		wecom.WithDebug(true),
 	)
 
