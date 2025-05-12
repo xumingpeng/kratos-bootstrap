@@ -1,4 +1,4 @@
-module github.com/xumingpeng/kratos-bootstrap/api
+module github.com/tx7do/kratos-bootstrap/api
 
 go 1.22.0
 

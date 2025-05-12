@@ -249,7 +249,6 @@ message Server {
   optional Machinery machinery = 31;  // Machinery服务
 
 
-  // weCom 企业微信
   optional WeCom wecom = 40; // 企业微信服务
 
   message WeCom {
