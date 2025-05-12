@@ -254,7 +254,7 @@ message Server {
 
   message WeCom {
     string Address = 1; // http服务地址
-    string AgentID = 2;
+    int32 AgentID = 2;
     string CorpID = 3; // 企业ID
     string CorpSecret = 4; // 企业微信应用secret
     string ContactSecret = 5; // 企业微信通讯录secret
