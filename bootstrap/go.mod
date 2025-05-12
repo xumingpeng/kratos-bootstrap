@@ -19,7 +19,7 @@ replace (
 require (
 	github.com/go-kratos/kratos/v2 v2.8.4
 	github.com/google/subcommands v1.2.0
-	github.com/olekukonko/tablewriter v0.0.5
+	github.com/olekukonko/tablewriter v1.0.2
 	github.com/spf13/cobra v1.9.1
 	github.com/tx7do/kratos-bootstrap/api v0.0.13
 	github.com/tx7do/kratos-bootstrap/config v0.0.9
@@ -31,6 +31,7 @@ require (
 )
 
 require (
+	auroraride.com/auth v0.0.0-20250512101944-2f1fd53c5dba // indirect
 	dario.cat/mergo v1.0.2 // indirect
 	github.com/aliyun/alibaba-cloud-sdk-go v1.63.107 // indirect
 	github.com/apolloconfig/agollo/v4 v4.4.0 // indirect
@@ -97,7 +98,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
-	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/json-iterator/go v1.1.13-0.20220915233716-71ac16282d12 // indirect
 	github.com/karlseguin/ccache/v2 v2.0.8 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect

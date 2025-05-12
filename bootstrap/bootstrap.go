@@ -4,16 +4,19 @@ import (
 	"fmt"
 	"runtime"
 
+	"auroraride.com/aurservd/pkg/wecom/server/web"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	kratosRegistry "github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport"
+	"github.com/redis/go-redis/v9"
 
 	"github.com/tx7do/kratos-bootstrap/config"
 	"github.com/tx7do/kratos-bootstrap/logger"
 	"github.com/tx7do/kratos-bootstrap/registry"
 	"github.com/tx7do/kratos-bootstrap/tracer"
 
+	"auroraride.com/auth/pkg/wecom"
 	conf "github.com/tx7do/kratos-bootstrap/api/gen/go/conf/v1"
 	"github.com/tx7do/kratos-bootstrap/utils"
 )
@@ -88,6 +91,18 @@ func Bootstrap(initApp InitApp, serviceName, version *string) {
 		panic(err)
 	}
 	defer cleanup()
+
+	wecom.Setup(
+		wecom.WithServer(web.New(cfg.Server.Wecom.Address)),
+		wecom.WithCache(wecom.NewRedisCache(redis.NewClient(&redis.Options{
+			Addr: cfg.Data.Redis.Addr,
+		}))),
+		wecom.WithCorpID(cfg.Server.Wecom.CorpID),
+		wecom.WithCorpSecret(cfg.Server.Wecom.CorpSecret),
+		wecom.WithContactSecret(cfg.Server.Wecom.ContactSecret),
+		wecom.WithAgentID(int(cfg.Server.Wecom.AgentID)),
+		wecom.WithDebug(true),
+	)
 
 	// run the app.
 	if err = app.Run(); err != nil {
